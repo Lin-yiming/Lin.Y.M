@@ -61,15 +61,7 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, sticker_message)
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
-        if re.match('好',message):
-        # 貼圖查詢：https://developers.line.biz/en/docs/messaging-api/sticker-list/#specify-sticker-in-message-object
-        sticker_message = StickerSendMessage(
-            package_id='1',
-            sticker_id='2'
-        )
-        line_bot_api.reply_message(event.reply_token, sticker_message)
-    else:
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
+       
 #主程式
 import os
 if __name__ == "__main__":
