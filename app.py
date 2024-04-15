@@ -61,7 +61,8 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, sticker_message)
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
-        def handle_message(event):
+@handler.add(MessageEvent, message=TextMessage)
+def handle_message(event):
     message = text=event.message.text
     if re.match('讚',message):
         # 貼圖查詢：https://developers.line.biz/en/docs/messaging-api/sticker-list/#specify-sticker-in-message-object
