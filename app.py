@@ -23,9 +23,9 @@ from linebot.models import *
 app = Flask(__name__)
 
 # 必須放上自己的Channel Access Token
-line_bot_api = LineBotApi('+iX585EKMgHlFicQlqPlQwrYBh2364TvFlT6lUfA+CJvzoB7i5xw88yOa7x1o1B4OlKesfndO2M6Nl9q4SeYn7+700i3CqocUHqzN+TeBZrl1Iy8DQ7jQ8f0CDbPGoV+NfpJDiZVtr41phCXsaZO6AdB04t89/1O/w1cDnyilFU=')
+line_bot_api = LineBotApi('p7Cmx4BoCNt0LD2kgdfeOe75gPTHF3sLGrR099KNnnrTdJK5RBzaAxB58kQs7XWmOlKesfndO2M6Nl9q4SeYn7+700i3CqocUHqzN+TeBZoCiktCjDL5w9fLfW9ed++jljaF0zYUhp620TxhWDkeTwdB04t89/1O/w1cDnyilFU=')
 # 必須放上自己的Channel Secret
-handler = WebhookHandler('50f06e510048a167e0f7fd2b3ed73263')
+handler = WebhookHandler('980186763ec26279c6c95254f44a4ae8')
 
 line_bot_api.push_message('Uae4d95a8996273cbd5fd013544cb3d5a', TextSendMessage(text='你可以開始了'))
 
@@ -49,14 +49,10 @@ def callback():
 
 #訊息傳遞區塊
 ##### 基本上程式編輯都在這個function #####
-   
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    message = event.message.text
-    if re.match('告訴我秘密',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('才不告訴你哩！'))
-    else:
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
+    message = TextSendMessage(text=event.message.text)
+    line_bot_api.reply_message(event.reply_token,message)
 
 #主程式
 import os
