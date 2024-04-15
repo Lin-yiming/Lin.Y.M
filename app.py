@@ -52,11 +52,22 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     message = text=event.message.text
-    if re.match('告訴我秘密',message):
+    if re.match('睡',message):
         # 貼圖查詢：https://developers.line.biz/en/docs/messaging-api/sticker-list/#specify-sticker-in-message-object
         sticker_message = StickerSendMessage(
             package_id='1',
             sticker_id='1'
+        )
+        line_bot_api.reply_message(event.reply_token, sticker_message)
+    else:
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
+        def handle_message(event):
+    message = text=event.message.text
+    if re.match('讚',message):
+        # 貼圖查詢：https://developers.line.biz/en/docs/messaging-api/sticker-list/#specify-sticker-in-message-object
+        sticker_message = StickerSendMessage(
+            package_id='1993',
+            sticker_id='1993'
         )
         line_bot_api.reply_message(event.reply_token, sticker_message)
     else:
