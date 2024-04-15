@@ -53,16 +53,21 @@ def callback():
 def handle_message(event):
     message = text=event.message.text
     if re.match('告訴我秘密',message):
-        location_message = LocationSendMessage(
-            title='日治時期的古蹟',
-            address='總統府',
-            latitude=25.040213810016002,
-            longitude=121.51238385108306
-        )
-        line_bot_api.reply_message(event.reply_token, location_message)
+        flex_message = TextSendMessage(text='以下有雷，請小心',
+                               quick_reply=QuickReply(items=[
+                                   QuickReplyButton(action=MessageAction(label="按我", text="按！")),
+                                   QuickReplyButton(action=MessageAction(label="按我", text="按！")),
+                                   QuickReplyButton(action=MessageAction(label="按我", text="按！")),
+                                   QuickReplyButton(action=MessageAction(label="別按我", text="你按屁喔！爆炸了拉！！")),
+                                   QuickReplyButton(action=MessageAction(label="按我", text="按！")),
+                                   QuickReplyButton(action=MessageAction(label="按我", text="按！")),
+                                   QuickReplyButton(action=MessageAction(label="按我", text="按！")),
+                                   QuickReplyButton(action=MessageAction(label="按我", text="按！")),
+                                   QuickReplyButton(action=MessageAction(label="按我", text="按！"))
+                               ]))
+        line_bot_api.reply_message(event.reply_token, flex_message)
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
-
 #主程式
 import os
 if __name__ == "__main__":
