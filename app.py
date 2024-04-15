@@ -66,6 +66,56 @@ def handle_message(event):
             sticker_id='2'
         )
         line_bot_api.reply_message(event.reply_token, sticker_message)
+    elif re.match('開心', message):
+        # 新增第三個貼圖
+        sticker_message = StickerSendMessage(
+            package_id='1',
+            sticker_id='3'
+        )
+        line_bot_api.reply_message(event.reply_token, sticker_message)
+    # 繼續新增其他貼圖...
+    elif re.match('貼圖4', message):
+        sticker_message = StickerSendMessage(
+            package_id='1',
+            sticker_id='4'
+        )
+        line_bot_api.reply_message(event.reply_token, sticker_message)
+    elif re.match('貼圖5', message):
+        sticker_message = StickerSendMessage(
+            package_id='1',
+            sticker_id='5'
+        )
+        line_bot_api.reply_message(event.reply_token, sticker_message)
+    elif re.match('貼圖6', message):
+        sticker_message = StickerSendMessage(
+            package_id='1',
+            sticker_id='6'
+        )
+        line_bot_api.reply_message(event.reply_token, sticker_message)
+    elif re.match('貼圖7', message):
+        sticker_message = StickerSendMessage(
+            package_id='1',
+            sticker_id='7'
+        )
+        line_bot_api.reply_message(event.reply_token, sticker_message)
+    elif re.match('貼圖8', message):
+        sticker_message = StickerSendMessage(
+            package_id='1',
+            sticker_id='8'
+        )
+        line_bot_api.reply_message(event.reply_token, sticker_message)
+    elif re.match('貼圖9', message):
+        sticker_message = StickerSendMessage(
+            package_id='1',
+            sticker_id='9'
+        )
+        line_bot_api.reply_message(event.reply_token, sticker_message)
+    elif re.match('貼圖10', message):
+        sticker_message = StickerSendMessage(
+            package_id='1',
+            sticker_id='10'
+        )
+        line_bot_api.reply_message(event.reply_token, sticker_message)
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
        
