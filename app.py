@@ -59,14 +59,14 @@ def handle_message(event):
             sticker_id='1'
         )
         line_bot_api.reply_message(event.reply_token, sticker_message)
-    elif re.match('生氣', message):
+    elif re.match('好', message):
         # 新增第二個貼圖
         sticker_message = StickerSendMessage(
             package_id='1',
             sticker_id='2'
         )
         line_bot_api.reply_message(event.reply_token, sticker_message)
-    elif re.match('開心', message):
+    elif re.match('驚', message):
         # 新增第三個貼圖
         sticker_message = StickerSendMessage(
             package_id='1',
@@ -74,43 +74,43 @@ def handle_message(event):
         )
         line_bot_api.reply_message(event.reply_token, sticker_message)
     # 繼續新增其他貼圖...
-    elif re.match('貼圖4', message):
+    elif re.match('請求', message):
         sticker_message = StickerSendMessage(
             package_id='1',
             sticker_id='4'
         )
         line_bot_api.reply_message(event.reply_token, sticker_message)
-    elif re.match('貼圖5', message):
+    elif re.match('美好', message):
         sticker_message = StickerSendMessage(
             package_id='1',
             sticker_id='5'
         )
         line_bot_api.reply_message(event.reply_token, sticker_message)
-    elif re.match('貼圖6', message):
+    elif re.match('生氣', message):
         sticker_message = StickerSendMessage(
             package_id='1',
             sticker_id='6'
         )
         line_bot_api.reply_message(event.reply_token, sticker_message)
-    elif re.match('貼圖7', message):
+    elif re.match('是你', message):
         sticker_message = StickerSendMessage(
             package_id='1',
             sticker_id='7'
         )
         line_bot_api.reply_message(event.reply_token, sticker_message)
-    elif re.match('貼圖8', message):
+    elif re.match('怕', message):
         sticker_message = StickerSendMessage(
             package_id='1',
             sticker_id='8'
         )
         line_bot_api.reply_message(event.reply_token, sticker_message)
-    elif re.match('貼圖9', message):
+    elif re.match('衰', message):
         sticker_message = StickerSendMessage(
             package_id='1',
             sticker_id='9'
         )
         line_bot_api.reply_message(event.reply_token, sticker_message)
-    elif re.match('貼圖10', message):
+    elif re.match('笑', message):
         sticker_message = StickerSendMessage(
             package_id='1',
             sticker_id='10'
