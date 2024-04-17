@@ -116,7 +116,7 @@ def handle_message(event):
             sticker_id='10'
         )
         line_bot_api.reply_message(event.reply_token, sticker_message)
-    elif re.match('關鍵字查詢',message):
+    elif re.match('關鍵字',message):
         flex_message = TextSendMessage(text='以下有雷，請小心',
                                quick_reply=QuickReply(items=[
                                    QuickReplyButton(action=MessageAction(label="關鍵價位", text="關鍵價位！")),
