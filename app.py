@@ -119,10 +119,10 @@ def handle_message(event):
     elif re.match('關鍵字',message):
         flex_message = TextSendMessage(text='以下有雷，請小心',
                                quick_reply=QuickReply(items=[
-                                   QuickReplyButton(action=MessageAction(label="關鍵價位", text="關鍵價位！")),
+                                   QuickReplyButton(action=MessageAction(label="關鍵價位", text="關鍵！")),
                                    QuickReplyButton(action=MessageAction(label="密碼", text="密碼！")),
                                    QuickReplyButton(action=MessageAction(label="木沐", text="木沐！")),
-                                   QuickReplyButton(action=MessageAction(label="重要筆記", text="重要筆記！！")),
+                                   QuickReplyButton(action=MessageAction(label="重要筆記", text="重要！！")),
                                    QuickReplyButton(action=MessageAction(label="早安", text="早安！")),
                                    QuickReplyButton(action=MessageAction(label="歡迎", text="歡迎！")),
                                    QuickReplyButton(action=MessageAction(label="貼圖", text="笑！")),                               
