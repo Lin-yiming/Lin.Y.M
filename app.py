@@ -138,7 +138,7 @@ def handle_message(event):
     elif re.match('關鍵字',message):
         flex_message = TextSendMessage(text='以下有雷，請小心',
                                quick_reply=QuickReply(items=[
-                                   QuickReplyButton(action=MessageAction(label="關鍵價位", text="關鍵價位！")),
+                                   QuickReplyButton(action=MessageAction(label="關鍵價位", text="關鍵！")),
                                    QuickReplyButton(action=MessageAction(label="密碼", text="密碼！")),
                                    QuickReplyButton(action=MessageAction(label="木沐", text="木沐！")),
                                    QuickReplyButton(action=MessageAction(label="重要筆記", text="重要！！")),
@@ -161,7 +161,7 @@ def handle_message(event):
             average_close_price = stock_data['Close'].mean()
             
             # 準備回覆訊息
-            reply_message = f"收盤價的平均值: {average_close_price}\n\n獲取的股票數據:\n{stock_data}"
+            reply_message = f"收盤價的平均值: {average_close_price}"
             
             # 回覆訊息
             line_bot_api.reply_message(event.reply_token, TextSendMessage(text=reply_message))
