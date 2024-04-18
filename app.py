@@ -20,6 +20,8 @@ from linebot.exceptions import (
 )
 from linebot.models import *
 import re
+import yfinance as yf  # 新增的模塊
+
 app = Flask(__name__)
 
 # 必須放上自己的Channel Access Token
@@ -46,6 +48,23 @@ def callback():
         abort(400)
 
     return 'OK'
+
+# 股票數據獲取功能
+def fetch_stock_data(symbol, start_date, end_date):
+    """
+    從 Yahoo Finance 獲取指定股票在指定時間範圍內的數據。
+    
+    Args:
+        symbol (str): 股票代號。
+        start_date (str): 開始日期，格式為 'YYYY-MM-DD'。
+        end_date (str): 結束日期，格式為 'YYYY-MM-DD'。
+    
+    Returns:
+        pandas.DataFrame: 包含獲取的股票數據的 DataFrame。
+    """
+    # 獲取股票數據
+    data = yf.download(symbol, start=start_date, end=end_date)
+    return data
 
 #訊息傳遞區塊
 ##### 基本上程式編輯都在這個function #####
@@ -119,7 +138,7 @@ def handle_message(event):
     elif re.match('關鍵字',message):
         flex_message = TextSendMessage(text='以下有雷，請小心',
                                quick_reply=QuickReply(items=[
-                                   QuickReplyButton(action=MessageAction(label="關鍵價位", text="關鍵！")),
+                                   QuickReplyButton(action=MessageAction(label="關鍵價位", text="關鍵價位！")),
                                    QuickReplyButton(action=MessageAction(label="密碼", text="密碼！")),
                                    QuickReplyButton(action=MessageAction(label="木沐", text="木沐！")),
                                    QuickReplyButton(action=MessageAction(label="重要筆記", text="重要！！")),
@@ -128,6 +147,27 @@ def handle_message(event):
                                    QuickReplyButton(action=MessageAction(label="貼圖", text="笑！")),                               
                                ]))
         line_bot_api.reply_message(event.reply_token, flex_message)
+    elif re.match('股票', message):  # 新增對股票查詢的回應
+        try:
+            # 指定股票代號和時間範圍
+            symbol = "2317.TW"  # 代號，你可以更改為其他股票代號
+            start_date = '2023-04-01'
+            end_date = '2024-04-10'
+            
+            # 獲取股票數據
+            stock_data = fetch_stock_data(symbol, start_date, end_date)
+            
+            # 計算收盤價的平均值
+            average_close_price = stock_data['Close'].mean()
+            
+            # 準備回覆訊息
+            reply_message = f"收盤價的平均值: {average_close_price}\n\n獲取的股票數據:\n{stock_data}"
+            
+            # 回覆訊息
+            line_bot_api.reply_message(event.reply_token, TextSendMessage(text=reply_message))
+        except Exception as e:
+            # 若發生錯誤，回覆錯誤訊息
+            line_bot_api.reply_message(event.reply_token, TextSendMessage(text=str(e)))
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
        
