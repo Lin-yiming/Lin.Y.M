@@ -1,7 +1,7 @@
 # imgur key
 client_id = 'd6f8a94c37e2b83'
 client_secret = 'e63b686c655b40cc16e0bebad71dac82e10ec54e'
-album_id = 'https://imgur.com/a/COUVmDj'
+album_id = 'COUVmDj'
 access_token = 'e34c39966b38a096aabe0f004e553c14b2ad9f09'
 refresh_token = 'c9a521ccb443ef53eaa5faa2a8b5b79bd24c6a24'
 
