@@ -1,5 +1,12 @@
-Flask==2.1.2
-gunicorn==20.1.0
-beautifulsoup4==4.11.1
-line-bot-sdk==2.3.0
-imgurpython==1.1.7
+line-bot-sdk
+bs4
+flask
+pymongo
+datetime
+pandas
+SnowNLP
+emoji
+pyshorteners
+scipy
+yfinance
+apscheduler
