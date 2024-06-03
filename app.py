@@ -24,9 +24,9 @@ import pytz
 app = Flask(__name__)
 
 # 必須放上自己的 Channel Access Token
-line_bot_api = LineBotApi('I0YAYy/1KpvDksLHvIiCuTrsxFuUpISH4rjEcBjngrAxXcXwhiJa9j/sI3UtGC5qV4T0h85mxg1Ju2BpYWTPSORi4YSwHLqBCGqIxiJTsrwPHRKNRQ3wbJs1l/O6CbSU5wHN2h1yz5bj4uLG5A0rlAdB04t89/1O/w1cDnyilFU=')
+line_bot_api = LineBotApi('sLqfuHAML8w7edfahcrCXiqhvh8DKPm29T6DXobKZAAsFnc9KX4OsdxIImyMlTUPGmq4uZ+73nWnGa0vfIRRM+TgxK53OIkI+I0Bt7E4CaCuBy8oYwtzKvUet56jW5oF/6H7jCgEWFoJZAatfEp/OAdB04t89/1O/w1cDnyilFU=')
 # 必須放上自己的 Channel Secret
-handler = WebhookHandler('504ab301b9d64cb72a4785271d11ffd8')
+handler = WebhookHandler('ac1c39cba994874c70d504130e80e92e')
 
 line_bot_api.push_message('Uae4d95a8996273cbd5fd013544cb3d5a', TextSendMessage(text='你可以開始了'))
 
